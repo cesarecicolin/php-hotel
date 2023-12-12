@@ -47,6 +47,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
 </head>
 <!-- 'name' => 'Hotel Belvedere',
             'description' => 'Hotel Belvedere Descrizione',
@@ -54,25 +56,41 @@
             'vote' => 4,
             'distance_to_center' => 10.4 -->
 <body>
+    
+
     <section>
-    <?php foreach ($hotels as $info_hotel) { ?>
-                <article>
-                    <h2>
-                        <?php echo $info_hotel['name']; ?>
-                    </h2>
-                    <p><?php echo $info_hotel['description']; ?></p>
-                    
-                    <p><?php echo $info_hotel['vote']; ?></p>
-                    <?php if ($info_hotel['parking'] === true) { ?>
-                        <p> si </p>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">NAME</th>
+      <th scope="col">DESCRIPTION</th>
+      <th scope="col">VOTE</th>
+      <th scope="col">PARKING</th>
+      <th scope="col">DISTANCE TO CENTER</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach ($hotels as $info_hotel) { ?>
+
+    <tr>
+      <th scope="row"><?php echo $info_hotel['name']; ?></th>
+      <td><?php echo $info_hotel['description']; ?></td>
+      <td><?php echo $info_hotel['vote']; ?></td>
+      
+      <td>
+      <?php if ($info_hotel['parking'] === true) { ?>
+                         si 
                         <?php } else { ?>
-                            <p>no</p>
+                            no
 
                        <?php } ?>
-                     
-                    <p><?php echo $info_hotel['distance_to_center']; ?></p>
-                </article>
-                <?php } ?>
+      </td>
+      <td><?php echo $info_hotel['distance_to_center']; ?></td>
+    </tr>
+   
+  </tbody>
+  <?php } ?>
+</table>
     </section>
 </body>
 </html>
